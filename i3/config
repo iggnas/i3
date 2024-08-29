@@ -3,7 +3,7 @@
 font pango:DejaVuSansM Nerd Font 9
 # class                 border  backgr. text    indicator
 client.focused          #81a1c1 #81a1c1 #ffffff #81a1c1
-client.unfocused        #1f222d #1f222d #888888 #1f222d
+client.unfocused        #2e3440 #1f222d #888888 #1f222d
 client.focused_inactive #2e3440 #1f222d #888888 #1f222d
 client.placeholder      #2e3440 #1f222d #888888 #1f222d
 client.urgent           #900000 #900000 #ffffff #900000
@@ -23,6 +23,7 @@ exec_always "setxkbmap -layout pl"
 
 #APP KEYBINDS
 bindsym Print exec flameshot gui --clipboard
+bindsym Shift+Print exec flameshot full --path ~/Screenshots
 bindsym $super+Return exec kitty
 bindsym $super+b exec firefox
 bindsym $super+d exec j4-dmenu-desktop --dmenu="dmenu -i -b \
