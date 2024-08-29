@@ -1,0 +1,23 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "nord-dark"
+
+[[block]]
+block = "focused_window"
+
+[[block]]
+block = "net"
+format = " $icon $signal_strength"
+
+[icons]
+icons = "material-nf"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "time"
+interval = 5
+#format = " $timestamp.datetime(f:'%a %d/%m %R') "
+format = " $icon $timestamp.datetime(f:'%Y-%m-%d %R') "

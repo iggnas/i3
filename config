@@ -1,0 +1,94 @@
+#THEMING
+
+font pango:DejaVuSansM Nerd Font 9
+# class                 border  backgr. text    indicator
+client.focused          #81a1c1 #81a1c1 #ffffff #81a1c1
+client.unfocused        #1f222d #1f222d #888888 #1f222d
+client.focused_inactive #2e3440 #1f222d #888888 #1f222d
+client.placeholder      #2e3440 #1f222d #888888 #1f222d
+client.urgent           #900000 #900000 #ffffff #900000
+client.background       #242424
+
+#SUPERKEYS
+
+set $super Mod4
+set $alt Mod1 
+
+#AUTOSTART
+exec_always xrandr --output DP-0 --mode 2560x1440 --rate 240
+exec_always feh --bg-fill /home/ignas/wallpaper.png
+exec_always picom --config ~/.config/picom/picom.conf
+exec_always "setxkbmap -layout pl"
+
+
+#APP KEYBINDS
+bindsym Print exec flameshot gui --clipboard
+bindsym $super+Return exec kitty
+bindsym $super+b exec firefox
+bindsym $super+d exec j4-dmenu-desktop --dmenu="dmenu -i -b \
+-fn 'Poppins:size=14' -nb '#1f222d' -nf '#4a5467' \
+-sb '#2e3440' -sf '#81a1c1'"
+
+#WM KEYBINDS
+bindsym $super+q kill
+bindsym $alt+F4 kill
+
+bindsym $super+Left focus left
+bindsym $super+Down focus down
+bindsym $super+Up focus up
+bindsym $super+Right focus right
+bindsym $super+Shift+Left move left
+bindsym $super+Shift+Down move down
+bindsym $super+Shift+Up move up
+bindsym $super+Shift+Right move right
+
+bindsym $super+h split h
+bindsym $super+v split v
+bindsym $super+s layout toggle split
+
+bindsym $super+f fullscreen toggle
+floating_modifier Mod1
+bindsym $super+Shift+space floating toggle
+bindsym $super+space focus mode_toggle
+
+bindsym $super+Control+Right workspace next
+bindsym $super+Control+Left workspace prev
+bindsym $super+1 workspace 1:1
+bindsym $super+2 workspace 2:2
+bindsym $super+3 workspace 3:3
+bindsym $super+4 workspace 4:4
+bindsym $super+5 workspace 5:5
+bindsym $super+Shift+1 move container to workspace 1:1
+bindsym $super+Shift+2 move container to workspace 2:2
+bindsym $super+Shift+3 move container to workspace 3:3
+bindsym $super+Shift+4 move container to workspace 4:4
+bindsym $super+Shift+5 move container to workspace 5:5
+
+bindsym $super+Shift+BackSpace exec i3-msg restart
+bindsym $super+Shift+Shift+q exec i3-msg exit
+
+#BAR
+bar {
+   	height 30
+	position top
+    	font pango:DejaVuSansM Nerd Font
+	status_command /usr/bin/i3status-rs ~/.config/i3status-rust/config.toml
+   	strip_workspace_numbers yes
+
+    colors {
+            separator  #1f222d
+            background #1f222d
+            statusline #81a1c1
+
+            #                   border  background text
+            focused_workspace  #1f222d #1f222d    #81a1c1
+            active_workspace   #1f222d #252936    #5e81ac
+            inactive_workspace #1f222d #1f222d    #4c566a
+            urgent_workspace   #1f222d #1f222d    #ee829f
+            binding_mode       #1f222d #81a1c1    #2e3440
+    }
+}
+
+for_window [class=Eog|Sxiv|feh|mpv|Vlc|File-roller|Xarchiver|steam] floating enable
+for_window [class="^.*"] border pixel 2
+hide_edge_borders smart
