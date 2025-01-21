@@ -15,17 +15,17 @@ set $super Mod4
 set $alt Mod1 
 
 #AUTOSTART
-exec_always xrandr --output DP-0 --mode 2560x1440 --rate 240
-exec_always feh --bg-fill /home/ignas/wallpaper.png
-exec_always picom --config ~/.config/picom/picom.conf
-exec_always "setxkbmap -layout pl"
-
+exec_always --no-startup-id xrandr --output DP-0 --mode 2560x1440 --rate 240
+exec_always --no-startup-id feh --bg-fill /home/ignas/wallpaper.png
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec_always --no-startup-id "setxkbmap -layout pl"
+exec_always --no-startup-id "xrdb -merge ~/.Xresources"
 
 #APP KEYBINDS
 bindsym Print exec flameshot gui --clipboard
 bindsym Shift+Print exec flameshot full --path ~/Screenshots
 bindsym $super+Return exec kitty
-bindsym $super+b exec firefox
+bindsym $super+b exec firefox-bin
 bindsym $super+d exec j4-dmenu-desktop --dmenu="dmenu -i -b \
 -fn 'Poppins:size=14' -nb '#1f222d' -nf '#4a5467' \
 -sb '#2e3440' -sf '#81a1c1'"
@@ -48,6 +48,7 @@ bindsym $super+v split v
 bindsym $super+s layout toggle split
 
 bindsym $super+f fullscreen toggle
+bindsym $super+Shift+f fullscreen toggle global
 floating_modifier Mod1
 bindsym $super+Shift+space floating toggle
 bindsym $super+space focus mode_toggle
@@ -70,7 +71,7 @@ bindsym $super+Shift+Shift+q exec i3-msg exit
 
 #BAR
 bar {
-   	height 30
+   	height 28
 	position top
     	font pango:DejaVuSansM Nerd Font
 	status_command /usr/bin/i3status-rs ~/.config/i3status-rust/config.toml
