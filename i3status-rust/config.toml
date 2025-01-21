@@ -4,9 +4,6 @@ icons_format = "{icon}"
 theme = "nord-dark"
 
 [[block]]
-block = "focused_window"
-
-[[block]]
 block = "net"
 format = " $icon $signal_strength"
 
