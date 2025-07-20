@@ -18,14 +18,13 @@ set $alt Mod1
 exec_always --no-startup-id xrandr --output DP-0 --mode 2560x1440 --rate 240
 exec_always --no-startup-id feh --bg-fill /home/ignas/Wallpapers/gmail2.png
 exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
-exec_always --no-startup-id "setxkbmap -layout pl"
-exec_always --no-startup-id "xrdb -merge ~/.Xresources"
+# exec_always --no-startup-id "setxkbmap -layout pl"
 
 #APP KEYBINDS
 bindsym Print exec flameshot gui --clipboard
 bindsym Shift+Print exec flameshot full --path ~/Screenshots
 bindsym $super+Return exec kitty
-bindsym $super+b exec firefox-bin
+bindsym $super+b exec firefox
 bindsym $super+d exec j4-dmenu-desktop --dmenu="dmenu -i -b \
 -fn 'Poppins:size=14' -nb '#1f222d' -nf '#4a5467' \
 -sb '#2e3440' -sf '#81a1c1'"
